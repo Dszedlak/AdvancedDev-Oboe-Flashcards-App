@@ -16,7 +16,7 @@ Sentance example: あの走ってる少年をごらんなさい
 card meaning: to run
 
 tags: Godan verb with ru ending, intransitive verb
-
+_____________________________________________________________________
 
 Kanji:綺麗
 
@@ -29,7 +29,7 @@ card meaning:pretty, lovely, beautiful
 Sentance example:この絵はきれいですね。
 
 tags:Na-Adjective
-
+_____________________________________________________________________
 
 Kanji:詰らない
 
@@ -42,7 +42,7 @@ card meaning:Boring
 Sentance example あの新しい映画は、つまらんかった
 
 tags:I-adjective
-
+_____________________________________________________________________
 
 Kanji:着物
 
@@ -55,7 +55,7 @@ card meaning:A kimono - Japanese traditional clothing
 Sentance example:kimono; Japanese traditional clothing (esp. full-length) 
 
 tags:Noun 
-
+_____________________________________________________________________
 
 Kanji:*LEAVE EMPTY* 
 
@@ -68,7 +68,7 @@ card meaning:lemon
 Sentance example:レモンの蜂蜜漬け
 
 tags:Noun
-
+_____________________________________________________________________
 
 Kanji:私
 
@@ -81,3 +81,4 @@ card meaning:I,Me
 Sentance example:私はかわちゃんです。
 
 tags:Pronoun
+_____________________________________________________________________
