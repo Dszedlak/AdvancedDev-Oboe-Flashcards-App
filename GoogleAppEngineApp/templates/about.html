@@ -1,0 +1,37 @@
+<!doctype html>
+<html> 
+{% extends "base.html" %}
+{% block title %}Decks - Oboe{% endblock %}
+{% block content %}
+<div class="about-section paddingTB60 gray-bg">
+                <div class="container">
+                    <div class="row">
+						<div class="col-md-7 col-sm-6">
+							<div class="about-title clearfix">
+								<h1>About <span>Oboe</span></h1>
+								<h3>What is Oboe?</h3>
+								<p class="about-paddingB">Oboe is a free flashcard app designed for Japanese language sutdents, that utilizes spaced repetition using the sm2 algorithm. <strong>"Oboe"</strong>
+								(覚え) is the Japanese word for memory, also the stem of the word <strong>"oboeru"</strong> (覚える) which means to memorize or to learn by heart.</p>
+								
+								<h3>How do I use Oboe?</h3>
+								<p>To start using oboe, simply create a deck by clicking on the <strong>Add Deck</strong> button on the navbar at the top of the page. 
+								Once done, add cards to that deck by selecting the deck you wish to add the following card to, and fill out the input boxes.
+								
+								<strong>Home</strong> will direct you to your list of decks, to start studying a deck, click on that deck. You can rename, delete or change the amount of repetitions for each day 
+								by clicking the dropdown button called <strong>Actions</strong>.</p>
+								
+								<h3>How does it work?</h3>
+								<p class="about-paddingB">Oboe is an interval in minutes based SRS application. When a user clicks on a button, it changes the interval of that card based on a multiplier. Below displays the result of each button press on the study page: </p>
+								<p class="about-paddingB"><strong>AGAIN</strong>: changes the interval of which the user will next see that card to 1 minute.</p>
+								<p class="about-paddingB"><strong>HARD</strong>: changes the interval of which the user will next see that card to <italic>interval * 1.2</italic>. If the current card interval is 10(10 minutes until next revision), then pressing HARD will result in the next revision for that card to 12 minutes</p>
+								<p class="about-paddingB"><strong>GOOD</strong>: changes the interval of which the user will next see that card to <italic>interval * 1.6</italic>. If the current card interval is 10(10 minutes until next revision), then pressing GOOD will result in the next revision for that card to 16 minutes</p>
+								<p class="about-paddingB"><strong>EASY</strong>: changes the interval of which the user will next see that card to <italic>interval * 1.9</italic>. If the current card interval is 10(10 minutes until next revision), then pressing EASY will result in the next revision for that card to 19 minutes</p>
+							
+							</div>
+							
+						</div>	
+						</div>	
+                    </div>
+                </div>
+{% endblock %}
+</html>

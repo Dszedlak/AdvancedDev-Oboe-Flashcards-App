@@ -1,0 +1,5 @@
+indexes:
+- kind: Card
+  ancestor: yes
+  properties:
+  - name: interval

@@ -1,0 +1,83 @@
+<!doctype html>
+<html> 
+{% extends "base.html" %}
+{% block title %}Decks - Oboe{% endblock %}
+{% block content %}
+ <div class="container">
+  <h2>Decks</h2>
+<div class="row">
+	{% for deck in decks %}
+	<div style="height: 30px; border-bottom: 1pt solid #E0E0E0;">
+	  <div class="col-sm-6"><a href="{{ url_for('study') }}?deck_name={{ deck.key.name  }}">{{ deck.deck_name }}</a></div>
+	  <div class="col-sm-3" align="right">Revised {{ deck.repetitions_today }} of {{ deck.repetitions }} cards</div>
+	  <div class="col-sm-3">
+	  <a href="#" class="dropdown-toggle pull-right"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li onclick="rename(`{{ deck.key.name }}`)" data-toggle="modal" data-target="#rename_modal" data-whatever="@mdo"><a href="#">Rename</a></li>
+            <li onclick="remove(`{{ deck.key.name }}`)" data-toggle="modal" data-target="#delete_modal" data-whatever="@mdo"><a href="#">Delete</a></li>
+			<li onclick="reps(`{{ deck.key.name }}`)" data-toggle="modal" data-target="#reps_modal" data-whatever="@mdo"><a href="#">Repetitions</a></li>
+          </ul>
+	  </div>
+	</div>
+{% endfor %}	
+	<h1 class="" id="Deck"></h1>
+		
+<div class="modal fade" id="rename_modal" tabindex="-1" role="dialog" aria-labelledby="rename_modalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <form method="post" action="/">
+	  <div class="modal-body">
+          <div class="form-group">
+			<input type="hidden" id="deck_name" name="deck_name" value=""/>
+            <label for="new_deck_name" class="col-form-label">New deck name:</label>
+            <input type="text" class="form-control" id="new_deck_name" name="new_deck_name">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Rename deck</button>
+      </div>
+		</form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="delete_modalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+	  	<form method="post" action="/delete">
+          <div class="form-group">
+			<input type="hidden" id="delete_deck" name="delete_deck" value=""/>
+            <label for="delete_deck_name" class="col-form-label">Delete deck? </label>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+			<button type="submit" class="btn btn-primary">Yes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!-- /.container-fluid -->
+ 	
+<div class="modal fade" id="reps_modal" tabindex="-1" role="dialog" aria-labelledby="reps_modalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form method="post" action="/maxReps">
+	  <div class="modal-body">
+          <div class="form-group">
+			<input type="hidden" id="reps_deck" name="reps_deck" value=""/>
+            <label class="col-form-label">Repetitions</label>
+            <input type="text" class="form-control" id="new_repetitions" name="new_repetitions">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Update repetitions</button>
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+</html>

@@ -1,0 +1,59 @@
+<!doctype html> 
+{% extends "base.html" %}
+{% block title %}Decks - Oboe{% endblock %}
+	{% block content %}	
+<form method="post" action="/add">
+<div class="container">
+<h2 class="">Add Cards</h2>
+  <div class="form-group row top-buffer">
+    <label class="control-label col-sm-2" for="Deck">Deck:</label>
+    <div class="col-sm-9">
+			<select class="form-control" id="decks" name="deck_name">
+				{% for deck in decks %}
+					<option value="{{ deck.key.name }}">{{ deck.deck_name }}</option>
+				{% endfor %}
+			</select>
+		</div>
+    </div>
+
+<div class="form-group row top-buffer">
+	<label class="control-label col-sm-2" for="kanji">Kanji:</label>
+<div class="col-sm-9">
+  <input type="text" class="form-control" id="kanji" name="kanji" placeholder="Optional - Enter Kanji" >
+</div>
+</div>
+<div class="form-group row top-buffer">
+	<label class="control-label col-sm-2" for="kana">Kana:</label>
+<div class="col-sm-9">
+  <input type="text" class="form-control" id="kana" name="kana" placeholder="Required - Enter Katakana/Furigana" required>
+</div>
+</div>
+<div class="form-group row top-buffer">
+	<label class="control-label col-sm-2" for="romaji">Romaji:</label>
+<div class="col-sm-9">
+  <input type="text" class="form-control" id="romaji" name="romaji" placeholder="Optional - Enter Romaji">
+</div>
+</div>
+<div class="form-group row top-buffer">
+	<label class="control-label col-sm-2" for="card_meaning">Card Meaning:</label>
+<div class="col-sm-9">
+  <input type="text" class="form-control" id="card_meaning" name="card_meaning" placeholder="Required - Enter Card Meaning"required>
+</div>
+</div>
+<div class="form-group row top-buffer">
+	<label class="control-label col-sm-2" for="sentence_example">Sentence Example:</label>
+<div class="col-sm-9">
+	<input type="text" class="form-control" id="sentence_example" name="sentence_example" placeholder="Optional - Enter Sentence Example">
+</div>
+</div>
+<div class="form-group row top-buffer">
+	<label class="control-label col-sm-2" for="tags">Tags:</label>
+	<div class="col-sm-9">
+		<input type="text" class="form-control" id="tags" name="tags" placeholder="Optional - Enter Tags"><br>
+		<button type="submit" value="Submit" class="btn btn-primary" style="width: 138px;">Submit</button>
+	</div>
+</div>
+</div>
+</form>
+	{% endblock %}
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>	
+		<link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="icon" href="static/images/favicon.png">
+		<script src="{{bootstrap_find_resource('jquery.js', cdn='jquery')}}"></script>
+		<script src="{{bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap')}}"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+		<script>
+			var firebaseConfig = {
+				apiKey: "AIzaSyBH-yTmkyqkMwoQr-DC271SziiUTLnbyC0",
+				authDomain: "oboe14.firebaseapp.com",
+				databaseURL: "https://oboe14.firebaseio.com",
+				projectId: "oboe14",
+				storageBucket: "oboe14.appspot.com",
+				messagingSenderId: "835336259469",
+				appId: "1:835336259469:web:408b56bab8ce484ada5fc4",
+				measurementId: "G-W1M2MQS127"
+			};
+			firebase.initializeApp(firebaseConfig);
+			firebase.analytics();
+		</script>
+		<script src="https://www.gstatic.com/firebasejs/ui/4.3.0/firebase-ui-auth.js"></script>
+		<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.3.0/firebase-ui-auth.css" />
+		<script src="{{ url_for('static', filename='script.js') }}"></script>
+	</head>
+		<nav class="navbar navbar-inverse navbar-static-top">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand">覚</a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<div class="about-section paddingTB60 gray-bg">
+                <div class="row" style="text-align: center;">
+				  <div style="width: 75%; margin: auto;">
+					<div class="container-fluid">
+							<div class="about-title clearfix">
+								<h1>Login Here</h1>
+								<body>
+									<div id="firebaseui-auth-container"></div>
+									<button id="sign-out" hidden=true>Sign Out</button>
+								</body>		
+								<div class="container" style="line-height: 500px">
+								<h3>What is Oboe?</h3>
+								</div>
+								<p class="about-paddingB">Oboe is a free flashcard app designed for Japanese language sutdents, that utilizes spaced repetition using the sm2 algorithm. <strong>"Oboe"</strong>
+								(覚え) is the Japanese word for memory, also the stem of the word <strong>"oboeru"</strong> (覚える) which means to memorize or to learn by heart.</p>
+								
+								<h3>How do I use Oboe?</h3>
+								<p>To start using oboe, simply create a deck by clicking on the <strong>Add Deck</strong> button on the navbar at the top of the page. 
+								Once done, add cards to that deck by selecting the deck you wish to add the following card to, and fill out the input boxes.
+								
+								<strong>Home</strong> will direct you to your list of decks, to start studying a deck, click on that deck. You can rename, delete or change the amount of repetitions for each day 
+								by clicking the dropdown button called <strong>Actions</strong>.</p>
+								
+								<h3>How does it work?</h3>
+								<p class="about-paddingB">Oboe is an interval in minutes based SRS application. When a user clicks on a button, it changes the interval of that card based on a multiplier. Below displays the result of each button press on the study page: </p>
+								<p class="about-paddingB"><strong>AGAIN</strong>: changes the interval of which the user will next see that card to 1 minute.</p>
+								<p class="about-paddingB"><strong>HARD</strong>: changes the interval of which the user will next see that card to <italic>interval * 1.2</italic>. If the current card interval is 10(10 minutes until next revision), then pressing HARD will result in the next revision for that card to 12 minutes</p>
+								<p class="about-paddingB"><strong>GOOD</strong>: changes the interval of which the user will next see that card to <italic>interval * 1.6</italic>. If the current card interval is 10(10 minutes until next revision), then pressing GOOD will result in the next revision for that card to 16 minutes</p>
+								<p class="about-paddingB"><strong>EASY</strong>: changes the interval of which the user will next see that card to <italic>interval * 1.9</italic>. If the current card interval is 10(10 minutes until next revision), then pressing EASY will result in the next revision for that card to 19 minutes</p>
+							
+							</div>	
+						</div>	
+                    </div>
+                </div>
+	</div>
+</html>

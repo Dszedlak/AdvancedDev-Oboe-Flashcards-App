@@ -1,0 +1,68 @@
+<!doctype html>
+<html> 
+{% extends "base.html" %}
+{% block title %}Decks - Oboe{% endblock %}
+{% block content %}
+
+<div class="container">
+<form enctype="multipart/form-data" method="post" action="">
+	<div class="row" style="text-align: center;">
+	  <div style="width: 75%; margin: auto;">
+		<div class="container-fluid">
+		{% if card %}
+		  <div class="row">
+			<div class="col-md-12">
+			<h1 class="display-1"><font size="+15">{{ card.kanji }}</font></h2>
+			</div>
+		  </div>
+		  <div class="row">
+			<div class="col-md-12">
+			<h4>{{ card.kana }}</h4>
+			</div>
+		  </div>
+		  <div class="row">
+			<div class="col-md-12" style="height: 120px; border-bottom: 1pt solid #E0E0E0;">
+			<h4>{{ card.romaji }}</h4>
+		  </div>
+		   </div>
+		<a onclick="hide_button() "href="#Foo"  id="show-answer" class="btn btn-primary" data-toggle="collapse">Show Answer</a>
+		<div id="Foo" class="collapse">
+		  <div class="row">
+			<div class="col-md-12">
+			<h2>{{ card.card_meaning }}</h2>
+			</div>
+		  </div>
+		  <div class="row">
+			<div class="col-md-12">
+			<h2>{{ card.sentence_example }}</h2>
+			</div>
+		  </div>
+		  <div class="row">
+			<div class="col-md-12">
+			<h2>{{ card.tags }}</h2>
+			</div>
+		  </div>
+		{% else %}
+			<label>No deck selected, please select deck</label>
+		<input type="hidden" name="card_id" value="{{ card.id }}"/>
+		{% endif %}
+		<div class="row">
+			<div class="col-md-12">
+			<input type="hidden"name="current_index" value="{{ card_index }}"/>
+			<button class="btn btn-default" type="submit" name="difficulty" value="again">Again</button> 
+			<button class="btn btn-default" type="submit" name="difficulty" value="hard">Hard</button>
+			<button class="btn btn-default" type="submit" name="difficulty" value="good">Good</button>
+			<button class="btn btn-default" type="submit" name="difficulty" value="easy">Easy</button>
+			</div>
+		</div>
+		</div>
+	   </div>
+	  </div>
+	</div>
+</form>
+		
+
+		
+</div><!-- /.container-fluid -->
+{% endblock %}
+</html>

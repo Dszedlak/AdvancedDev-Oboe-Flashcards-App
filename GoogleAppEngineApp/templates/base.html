@@ -1,0 +1,101 @@
+{% block doc -%}
+<!DOCTYPE html>
+<html{% block html_attribs %}{% endblock html_attribs %}>
+{%- block html %}
+  <head>
+    {%- block head %}
+    <title>{% block title %}egg{% endblock title %}</title>
+
+    {%- block metas %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%- endblock metas %}
+
+    {%- block styles %}
+    <!-- Bootstrap -->
+    <link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="icon" href="static/images/favicon.png">
+    {%- endblock styles %}
+		
+    {%- endblock head %}
+  </head>
+  <body{% block body_attribs %}{% endblock body_attribs %}>
+    {% block body -%}
+	
+    {%block navbar %}
+	<div id="firebaseui-auth-container"></div>
+		<nav class="navbar navbar-inverse navbar-static-top">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand">覚</a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+			<li><a href="{{ url_for('home') }}">Home</span></a></li>
+			<li><a href="{{ url_for('add') }}">Add Cards</a></li>
+			<li><a href="{{ url_for('addDeck') }}">Add Deck</a></li>
+		  </ul>
+		  <ul class="nav navbar-nav navbar-right">
+			<li class="Account">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as: {{ user_data['name'] }} <span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				<li id = "sign-out"><a href="#">Logout</a></li>
+			  </ul>
+			</li>
+		  </ul>
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+    {%- endblock navbar %}
+	<body>
+	{% block content -%}
+	
+	
+    {%- endblock content %}
+	
+    {% block scripts %}
+    <script src="{{bootstrap_find_resource('jquery.js', cdn='jquery')}}"></script>
+    <script src="{{bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap')}}"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+	<script>
+		var firebaseConfig = {
+			apiKey: "AIzaSyBH-yTmkyqkMwoQr-DC271SziiUTLnbyC0",
+			authDomain: "oboe14.firebaseapp.com",
+			databaseURL: "https://oboe14.firebaseio.com",
+			projectId: "oboe14",
+			storageBucket: "oboe14.appspot.com",
+			messagingSenderId: "835336259469",
+			appId: "1:835336259469:web:408b56bab8ce484ada5fc4",
+			measurementId: "G-W1M2MQS127"
+		};
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+	</script>
+	<script src="https://www.gstatic.com/firebasejs/ui/4.3.0/firebase-ui-auth.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.3.0/firebase-ui-auth.css" />
+	<script src="{{ url_for('static', filename='logout.js') }}"></script>
+	<script src="{{ url_for('static', filename='actions.js') }}"></script>
+    {%- endblock scripts %}
+    {%- endblock body %}
+  </body>
+  {% block footer -%}
+
+	<body class="d-flex flex-column">
+		<div class="footer navbar-fixed-bottom container text-center">
+		<h4><a href="{{ url_for('about') }}">About</a> - <a href="{{ url_for('usefulRecources') }}">Resources</a></h4>
+		</div>
+	</body>	
+	{%- endblock footer %}
+{%- endblock html %}
+</html>
+{% endblock doc -%}

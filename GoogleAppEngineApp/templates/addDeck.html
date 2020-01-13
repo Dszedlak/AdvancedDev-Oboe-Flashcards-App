@@ -1,0 +1,18 @@
+<!doctype html>
+<html> 
+{% extends "base.html" %}
+{% block title %}Decks - Oboe{% endblock %}
+{% block content %}
+
+<form method="post" action="/addDeck">
+
+<div class="container">
+  <h2>Add Deck</h2>
+    <div class="form-group">
+      <input type="text" id="deck_name" name="add_deck" class="form-control" placeholder="Enter Deck name">
+    </div>
+    <button type="submit" class="btn btn-primary"  style="width: 138px;">Submit</button>	
+</div>
+</form>
+{% endblock %}
+</html>
